@@ -8,11 +8,15 @@ dat = pd.read_csv(url)
 y = dat['dist']
 X = dat[['speed']] # sklearn needs X to have 2 dim.
 
-s = lm.LinearRegression(fit_intercept=False)
-s.fit(X, y) # Fit regression model
+lr = lm.LinearRegression(fit_intercept=False)
+lr.fit(X, y) # Fit regression model
+
+ls = lm.LinearRegression(fit_intercept=True)
+ls.fit(X, y) # Fit regression model
 
 f = plt.figure(figsize=(8, 6))
 plt.plot(X, y, 'o', label="Data")
-plt.plot(X, s.predict(X), label="OLS-no-intercept")
+plt.plot(X, lr.predict(X), label="OLS-no-intercept")
+plt.plot(X, ls.predict(X), label="OLS-intercept")
 plt.legend(loc='upper left')
 plt.show()
