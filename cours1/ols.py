@@ -2,7 +2,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import sklearn.linear_model as lm
+
 # Load data
+# url: https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/master/csv/datasets/cars.csv
 url = 'cars.csv'
 dat = pd.read_csv(url)
 print(dat.describe())
